@@ -91,13 +91,42 @@ train_pipeline = [
     dict(type='LoadImageFromFile'),
     dict(type='LoadAnnotations', with_bbox=True, with_mask=True),
     dict(type='RandomFlip', flip_ratio=0.5),
+#     dict(type='AutoAugment',
+#          policies=[
+#              [
+#                  dict(type='Resize',
+#                       img_scale=[(480, 864), (512, 864), (544, 864), (576, 864),
+#                                  (608, 864), (640, 864), (672, 864), (704, 864),
+#                                  (736, 864), (768, 864), (800, 864)],
+#                       multiscale_mode='value',
+#                       keep_ratio=True)
+#              ],
+#              [
+#                  dict(type='Resize',
+#                       img_scale=[(400, 1333), (500, 1333), (600, 1333)],
+#                       multiscale_mode='value',
+#                       keep_ratio=True),
+#                  dict(type='RandomCrop',
+#                       crop_type='absolute_range',
+#                       crop_size=(384, 600),
+#                       allow_negative_crop=True),
+#                  dict(type='Resize',
+#                       img_scale=[(480, 864), (512, 864), (544, 864),
+#                                  (576, 864), (608, 864), (640, 864),
+#                                  (672, 864), (704, 864), (736, 864),
+#                                  (768, 864), (800, 864)],
+#                       multiscale_mode='value',
+#                       override=True,
+#                       keep_ratio=True)
+#              ]
+#          ]),
     dict(type='AutoAugment',
          policies=[
              [
                  dict(type='Resize',
-                      img_scale=[(480, 864), (512, 864), (544, 864), (576, 864),
-                                 (608, 864), (640, 864), (672, 864), (704, 864),
-                                 (736, 864), (768, 864), (800, 864)],
+                      img_scale=[(480, 640), (512, 640), (544, 640), (576, 640),
+                                 (608, 640), (640, 640), (672, 640), (704, 640),
+                                 (736, 640), (768, 640), (800, 640)],
                       multiscale_mode='value',
                       keep_ratio=True)
              ],
@@ -111,10 +140,10 @@ train_pipeline = [
                       crop_size=(384, 600),
                       allow_negative_crop=True),
                  dict(type='Resize',
-                      img_scale=[(480, 864), (512, 864), (544, 864),
-                                 (576, 864), (608, 864), (640, 864),
-                                 (672, 864), (704, 864), (736, 864),
-                                 (768, 864), (800, 864)],
+                      img_scale=[(480, 640), (512, 640), (544, 640),
+                                 (576, 640), (608, 640), (640, 640),
+                                 (672, 640), (704, 640), (736, 640),
+                                 (768, 640), (800, 640)],
                       multiscale_mode='value',
                       override=True,
                       keep_ratio=True)
