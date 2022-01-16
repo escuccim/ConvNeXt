@@ -414,7 +414,7 @@ lr_config = dict(
     warmup_iters=500,
     warmup_ratio=0.001,
     step=[27, 33])
-runner = dict(type='EpochBasedRunnerAmp', max_epochs=36)
+runner = dict(type='EpochBasedRunner', max_epochs=36)
 
 checkpoint_config = dict(interval=1)
 # yapf:disable
@@ -433,12 +433,12 @@ resume_from = None
 workflow = [('train', 1)]
 
 # do not use mmdet version fp16
-fp16 = None
-optimizer_config = dict(
-    type="DistOptimizerHook",
-    update_interval=1,
-    grad_clip=None,
-    coalesce=True,
-    bucket_size_mb=-1,
-    use_fp16=True,
-)
+# fp16 = None
+# optimizer_config = dict(
+#     type="DistOptimizerHook",
+#     update_interval=1,
+#     grad_clip=None,
+#     coalesce=True,
+#     bucket_size_mb=-1,
+#     use_fp16=True,
+# )
