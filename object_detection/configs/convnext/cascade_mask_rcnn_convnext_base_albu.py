@@ -284,7 +284,7 @@ albu_train_transforms = [
     # ),
     dict(
         type='VerticalFlip', p=0.25),
-    dict(type='RandomRotate90', p=0.3),
+#     dict(type='RandomRotate90', p=0.3),
     dict(type='RandomGamma', p=0.25),
     dict(
         type='OneOf',
@@ -312,7 +312,7 @@ train_pipeline = [
 #             format='pascal_voc',
             format='coco',
             label_fields=['gt_labels'],
-            min_visibility=0.1,
+            min_visibility=0.3,
             filter_lost_elements=True),
         keymap={
             'img': 'image', 'gt_masks': 'masks', 'gt_bboxes': 'bboxes'
