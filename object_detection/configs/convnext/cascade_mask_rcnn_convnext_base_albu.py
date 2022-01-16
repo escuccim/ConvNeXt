@@ -282,8 +282,8 @@ albu_train_transforms = [
     #     type="HorizontalFlip",
     #     p=0.4
     # ),
-    dict(
-        type='VerticalFlip', p=0.25),
+#     dict(
+#         type='VerticalFlip', p=0.25),
 #     dict(type='RandomRotate90', p=0.3),
     dict(type='RandomGamma', p=0.25),
     dict(
