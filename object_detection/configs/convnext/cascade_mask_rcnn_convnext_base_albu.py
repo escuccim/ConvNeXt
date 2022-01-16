@@ -407,7 +407,7 @@ optimizer = dict(
     betas=(0.9, 0.999),
     weight_decay=0.05,
     paramwise_cfg=dict(decay_rate=0.8, decay_type='layer_wise', num_layers=12))
-
+optimizer_config = dict(grad_clip=None)
 lr_config = dict(step=[27, 33])
 runner = dict(type='EpochBasedRunner', max_epochs=36)
 
