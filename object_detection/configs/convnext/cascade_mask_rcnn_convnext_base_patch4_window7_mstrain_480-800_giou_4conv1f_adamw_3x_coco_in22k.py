@@ -94,20 +94,24 @@ train_pipeline = [
     dict(type='AutoAugment',
          policies=[
              [
+                 dict(type='Resize',
+                      img_scale=[(480, 928), (512, 928), (544, 928), (576, 928),
+                                 (608, 928), (640, 928), (672, 928), (704, 928),
+                                 (736, 928), (768, 928), (800, 928)],
+                      multiscale_mode='value',
+                      keep_ratio=True),
                  dict(
                      type='Shear',
                      prob=0.4,
                      level=1),
                  dict(
+                     type='Translate',
+                     prob=0.3,
+                     level=2),
+                 dict(
                     type='Rotate',
                     prob=0.6,
-                    level=6),
-                 dict(type='Resize',
-                      img_scale=[(480, 928), (512, 928), (544, 928), (576, 928),
-                                 (608, 928), (640, 928), (672, 928), (704, 928),
-                                 (736, 928), (768, 928), (800, 928)],
-                      multiscale_mode='value',
-                      keep_ratio=True)
+                    level=6)
              ],
              [
                  dict(type='Resize',
@@ -118,7 +122,13 @@ train_pipeline = [
                       keep_ratio=True)
              ],
              [
-                  dict(
+                 dict(type='Resize',
+                      img_scale=[(480, 928), (512, 928), (544, 928), (576, 928),
+                                 (608, 928), (640, 928), (672, 928), (704, 928),
+                                 (736, 928), (768, 928), (800, 928)],
+                      multiscale_mode='value',
+                      keep_ratio=True),
+                 dict(
                     type='ContrastTransform',
                      prob=0.3,
                      level=3
@@ -133,15 +143,13 @@ train_pipeline = [
                      prob=0.4,
                      level=1),
                  dict(
+                     type='Translate',
+                     prob=0.2,
+                     level=5),
+                 dict(
                     type='Rotate',
                     prob=0.6,
                     level=10),
-                 dict(type='Resize',
-                      img_scale=[(480, 928), (512, 928), (544, 928), (576, 928),
-                                 (608, 928), (640, 928), (672, 928), (704, 928),
-                                 (736, 928), (768, 928), (800, 928)],
-                      multiscale_mode='value',
-                      keep_ratio=True)
              ],
              [
                  dict(type='Resize',
