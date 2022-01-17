@@ -154,6 +154,13 @@ optimizer = dict(constructor='LearningRateDecayOptimizerConstructor', _delete_=T
 lr_config = dict(step=[27, 33])
 runner = dict(type='EpochBasedRunner', max_epochs=36)
 
+log_config = dict(
+    interval=100,
+    hooks=[
+        dict(type='TextLoggerHook'),
+        # dict(type='TensorboardLoggerHook')
+    ])
+
 # do not use mmdet version fp16
 # fp16 = None
 # optimizer_config = dict(
