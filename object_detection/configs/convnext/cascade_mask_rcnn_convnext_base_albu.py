@@ -326,7 +326,7 @@ train_pipeline = [
                  dict(
                     type='Rotate',
                     prob=0.6,
-                    level=6,
+                    level=6),
                  dict(type='Resize',
                       img_scale=[(480, 928), (512, 928), (544, 928), (576, 928),
                                  (608, 928), (640, 928), (672, 928), (704, 928),
