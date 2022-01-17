@@ -307,6 +307,21 @@ train_pipeline = [
     dict(type='AutoAugment',
          policies=[
              [
+                 dict(
+                    type='ContrastTransform',
+                     prob=0.3,
+                     level=3
+                 ),
+                 dict(
+                    type='BrightnessTransform',
+                     prob=0.3,
+                     level=3
+                 ),
+                  dict(
+                    type='Rotate',
+                    prob=0.6,
+                    level=6,
+                    replace=replace),
                  dict(type='Resize',
                       img_scale=[(480, 928), (512, 928), (544, 928), (576, 928),
                                  (608, 928), (640, 928), (672, 928), (704, 928),
@@ -315,6 +330,21 @@ train_pipeline = [
                       keep_ratio=True)
              ],
              [
+                 dict(
+                    type='ContrastTransform',
+                     prob=0.3,
+                     level=3
+                 ),
+                 dict(
+                    type='BrightnessTransform',
+                     prob=0.3,
+                     level=3
+                 ),
+                 dict(
+                    type='Rotate',
+                    prob=0.6,
+                    level=5,
+                    replace=replace),
                  dict(type='Resize',
                       img_scale=[(400, 1333), (500, 1333), (600, 1333)],
                       multiscale_mode='value',
@@ -333,21 +363,21 @@ train_pipeline = [
                       keep_ratio=True)
              ]
          ]),
-    dict(
-        type='Albu',
-        transforms=albu_train_transforms,
-        bbox_params=dict(
-            type='BboxParams',
-#             format='pascal_voc',
-            format='coco',
-            label_fields=['gt_labels'],
-            min_visibility=0.3,
-            filter_lost_elements=True),
-        keymap={
-            'img': 'image', 'gt_masks': 'masks', 'gt_bboxes': 'bboxes'
-        },
-        update_pad_shape=False,
-        skip_img_without_anno=True),
+#     dict(
+#         type='Albu',
+#         transforms=albu_train_transforms,
+#         bbox_params=dict(
+#             type='BboxParams',
+# #             format='pascal_voc',
+#             format='coco',
+#             label_fields=['gt_labels'],
+#             min_visibility=0.3,
+#             filter_lost_elements=True),
+#         keymap={
+#             'img': 'image', 'gt_masks': 'masks', 'gt_bboxes': 'bboxes'
+#         },
+#         update_pad_shape=False,
+#         skip_img_without_anno=True),
     dict(type='Normalize', **img_norm_cfg),
     dict(type='Pad', size_divisor=32),
     dict(type='DefaultFormatBundle'),
