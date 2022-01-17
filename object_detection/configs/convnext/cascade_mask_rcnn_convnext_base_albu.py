@@ -317,11 +317,16 @@ train_pipeline = [
                      prob=0.3,
                      level=3
                  ),
-                  dict(
+                 dict(
+                     type='Shear',
+                     prob=0.4,
+                     level=1
+                     axis='x'),
+                 dict(type='Sharpness', prob=0.1, level=6),
+                 dict(
                     type='Rotate',
                     prob=0.6,
                     level=6,
-                    replace=replace),
                  dict(type='Resize',
                       img_scale=[(480, 928), (512, 928), (544, 928), (576, 928),
                                  (608, 928), (640, 928), (672, 928), (704, 928),
@@ -340,11 +345,11 @@ train_pipeline = [
                      prob=0.3,
                      level=3
                  ),
+                 dict(type='Sharpness', prob=0.1, level=3),
                  dict(
                     type='Rotate',
                     prob=0.6,
-                    level=5,
-                    replace=replace),
+                    level=5),
                  dict(type='Resize',
                       img_scale=[(400, 1333), (500, 1333), (600, 1333)],
                       multiscale_mode='value',
