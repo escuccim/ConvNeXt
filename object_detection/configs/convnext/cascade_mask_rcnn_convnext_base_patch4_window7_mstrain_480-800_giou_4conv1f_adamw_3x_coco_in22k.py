@@ -111,7 +111,10 @@ train_pipeline = [
                  dict(
                     type='Rotate',
                     prob=0.6,
-                    level=6)
+                    level=6),
+                 dict(
+                    type='EqualizeTransform',
+                    prob=0.5),
              ],
              [
                  dict(type='Resize',
@@ -119,7 +122,14 @@ train_pipeline = [
                                  (608, 928), (640, 928), (672, 928), (704, 928),
                                  (736, 928), (768, 928), (800, 928)],
                       multiscale_mode='value',
-                      keep_ratio=True)
+                      keep_ratio=True),
+                 dict(
+                    type='Rotate',
+                    prob=0.5,
+                    level=7),
+                 dict(
+                    type='EqualizeTransform',
+                    prob=0.3),
              ],
              [
                  dict(type='Resize',
@@ -150,6 +160,9 @@ train_pipeline = [
                     type='Rotate',
                     prob=0.6,
                     level=10),
+                 dict(
+                    type='EqualizeTransform',
+                    prob=0.2),
              ],
              [
                  dict(type='Resize',
@@ -204,6 +217,9 @@ train_pipeline = [
                     type='Rotate',
                     prob=0.6,
                     level=5),
+                 dict(
+                    type='EqualizeTransform',
+                    prob=0.4),
              ]
          ]),
     dict(type='Normalize', **img_norm_cfg),
