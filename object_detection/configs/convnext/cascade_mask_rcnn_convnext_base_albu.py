@@ -321,7 +321,7 @@ train_pipeline = [
                      type='Shear',
                      prob=0.4,
                      level=1),
-                 dict(type='Sharpness', prob=0.1, level=6),
+#                  dict(type='Sharpness', prob=0.1, level=6),
                  dict(
                     type='Rotate',
                     prob=0.6,
@@ -344,7 +344,7 @@ train_pipeline = [
                      prob=0.3,
                      level=3
                  ),
-                 dict(type='Sharpness', prob=0.1, level=3),
+#                  dict(type='Sharpness', prob=0.1, level=3),
                  dict(
                     type='Rotate',
                     prob=0.6,
