@@ -320,8 +320,7 @@ train_pipeline = [
                  dict(
                      type='Shear',
                      prob=0.4,
-                     level=1,
-                     axis='x'),
+                     level=1),
                  dict(type='Sharpness', prob=0.1, level=6),
                  dict(
                     type='Rotate',
